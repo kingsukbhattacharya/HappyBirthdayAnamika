@@ -210,15 +210,54 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 function fireworks(){
-  for(let i=0;i<60;i++){
+
+  // Start music
+  document.getElementById("bgMusic").play();
+
+  // Fireworks burst
+  for(let i=0;i<80;i++){
     const x=Math.random()*canvas.width;
     const y=Math.random()*canvas.height/2;
     ctx.beginPath();
-    ctx.arc(x,y,3,0,Math.PI*2);
+    ctx.arc(x,y,4,0,Math.PI*2);
     ctx.fillStyle="white";
     ctx.fill();
   }
-  setTimeout(()=>ctx.clearRect(0,0,canvas.width,canvas.height),500);
+
+  // Clear fireworks
+  setTimeout(()=>ctx.clearRect(0,0,canvas.width,canvas.height),800);
+
+  // BIG romantic message popup
+  const msg=document.createElement("div");
+  msg.innerHTML="💖 Happy Birthday My Love 💖<br>You are my everything ❤️";
+  msg.style.position="fixed";
+  msg.style.top="40%";
+  msg.style.left="50%";
+  msg.style.transform="translate(-50%,-50%)";
+  msg.style.fontSize="2em";
+  msg.style.background="rgba(0,0,0,0.6)";
+  msg.style.padding="20px";
+  msg.style.borderRadius="15px";
+  msg.style.zIndex="9999";
+  document.body.appendChild(msg);
+
+  // Remove after 3 sec
+  setTimeout(()=>msg.remove(),3000);
+
+  // Extra floating text hearts
+  for(let i=0;i<10;i++){
+    const love=document.createElement("div");
+    love.innerHTML="I ❤️ You";
+    love.style.position="fixed";
+    love.style.left=Math.random()*100+"vw";
+    love.style.top=Math.random()*100+"vh";
+    love.style.fontSize="20px";
+    love.style.color="white";
+    document.body.appendChild(love);
+
+    setTimeout(()=>love.remove(),2000);
+  }
+
 }
 
 setInterval(()=>{
