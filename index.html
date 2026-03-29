@@ -90,7 +90,6 @@ canvas {
   <h3 id="loveTimer"></h3>
 
   <div class="timer" id="countdownTomorrow"></div>
-  <div class="timer" id="countdownNextYear"></div>
 
   <button onclick="playMusic()">🎵 Play Music</button>
   <button onclick="showMessage()">💌 Love Message</button>
@@ -184,8 +183,6 @@ function getNextBirthday(){
   return birthday;
 }
 
-const nextYearBirthday = new Date("March 30, 2027 00:00:00");
-
 setInterval(()=>{
   const now = new Date().getTime();
 
@@ -199,13 +196,10 @@ setInterval(()=>{
 
   const birthday = getNextBirthday();
 const dist1 = birthday - now;
-  const dist2 = nextYearBirthday - now;
 
   document.getElementById("countdownTomorrow").innerHTML =
     "🎂 Countdown to her birthday: " + getTime(dist1);
 
-  document.getElementById("countdownNextYear").innerHTML =
-    "⏳ Countdown to next birthday: " + getTime(dist2);
 
 },1000);
 
