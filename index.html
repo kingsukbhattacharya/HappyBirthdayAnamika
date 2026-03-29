@@ -142,7 +142,7 @@ function typing(){
 typing();
 
 // Love timer
-const startDate = new Date("2024-01-01");
+const startDate = new Date("2024-06-29");
 setInterval(()=>{
   const now=new Date();
   const days=Math.floor((now-startDate)/(1000*60*60*24));
@@ -171,7 +171,7 @@ setInterval(()=>{
   const dist2 = nextYearBirthday - now;
 
   document.getElementById("countdownTomorrow").innerHTML =
-    "🎂 Countdown to her birthday (tomorrow): " + getTime(dist1);
+    "🎂 Countdown to her birthday: " + getTime(dist1);
 
   document.getElementById("countdownNextYear").innerHTML =
     "⏳ Countdown to next birthday: " + getTime(dist2);
