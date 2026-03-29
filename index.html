@@ -168,9 +168,21 @@ setInterval(()=>{
 },1000);
 
 // Birthday countdowns
-const tomorrowBirthday = new Date();
-tomorrowBirthday.setDate(tomorrowBirthday.getDate() + 1);
-tomorrowBirthday.setHours(0,0,0,0);
+function getNextBirthday(){
+  const now = new Date();
+  const year = now.getFullYear();
+
+  // Set birthday (March 30)
+  let birthday = new Date(year, 2, 30, 0, 0, 0); 
+  // Month is 0-based → 2 = March
+
+  // If birthday already passed this year → set next year
+  if(now > birthday){
+    birthday = new Date(year + 1, 2, 30, 0, 0, 0);
+  }
+
+  return birthday;
+}
 
 const nextYearBirthday = new Date("March 30, 2027 00:00:00");
 
@@ -185,7 +197,8 @@ setInterval(()=>{
     return `${d}d ${h}h ${m}m ${s}s`;
   }
 
-  const dist1 = tomorrowBirthday - now;
+  const birthday = getNextBirthday();
+const dist1 = birthday - now;
   const dist2 = nextYearBirthday - now;
 
   document.getElementById("countdownTomorrow").innerHTML =
