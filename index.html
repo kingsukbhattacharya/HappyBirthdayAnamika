@@ -222,7 +222,17 @@ bg.currentTime = 0;
 
 // Play surprise music
 const surprise = document.getElementById("surpriseMusic");
-surprise.play();
+
+// reset song
+surprise.currentTime = 0;
+
+// try playing safely
+surprise.play().then(() => {
+  console.log("Surprise music playing 🎵");
+}).catch((err) => {
+  console.log(err);
+  alert("Tap again 💖 to start the surprise music");
+});
 
   // Fireworks burst
   for(let i=0;i<80;i++){
