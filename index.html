@@ -74,6 +74,9 @@ canvas {
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
+  <audio id="surpriseMusic">
+  <source src="surprise.mp3" type="audio/mpeg">
+</audio>
 
 <canvas id="fireworksCanvas"></canvas>
 
@@ -212,7 +215,14 @@ canvas.height=window.innerHeight;
 function fireworks(){
 
   // Start music
-  document.getElementById("bgMusic").play();
+  // Stop normal music
+const bg = document.getElementById("bgMusic");
+bg.pause();
+bg.currentTime = 0;
+
+// Play surprise music
+const surprise = document.getElementById("surpriseMusic");
+surprise.play();
 
   // Fireworks burst
   for(let i=0;i<80;i++){
