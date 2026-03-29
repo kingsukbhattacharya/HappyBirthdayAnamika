@@ -137,7 +137,15 @@ I cherish every moment I spend thinking about you. 💭🌷 Have the best birthd
 <script>
 
 function playMusic(){
-  document.getElementById("bgMusic").play();
+  const bg = document.getElementById("bgMusic");
+  const surprise = document.getElementById("surpriseMusic");
+
+  // stop surprise music first
+  surprise.pause();
+  surprise.currentTime = 0;
+
+  // play normal music
+  bg.play();
 }
 
 const text = "I love you Sona... You are my everything ❤️";
